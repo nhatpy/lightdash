@@ -1,0 +1,11 @@
+id,timestamp,project_name,tap_chip,memories,rewards
+1,1718559600,Project A,10,5,3
+2,1718563200,Project A,12,7,4
+3,1718566800,Project B,15,6,5
+4,1718570400,Project A,8,3,2
+5,1718574000,Project B,14,5,4
+6,1718577600,Project C,11,8,6
+7,1718581200,Project A,9,4,3
+8,1718584800,Project B,13,7,5
+9,1718588400,Project C,16,9,7
+10,1718592000,Project A,7,4,2

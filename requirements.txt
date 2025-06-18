@@ -1,0 +1,6 @@
+dbt-core==1.9.0
+dbt-postgres==1.9.0
+# Add other dbt adapters as needed, such as:
+# dbt-bigquery==1.9.0
+# dbt-snowflake==1.9.0
+# dbt-redshift==1.9.0
