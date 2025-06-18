@@ -24,7 +24,7 @@ models:
           sql: rewards
 
     columns:
-      - name: day
+      - name: time
         description: "Ngày"
         tests:
           - not_null
@@ -134,7 +134,7 @@ models:
           sql: rewards
 
     columns:
-      - name: month
+      - name: time
         description: "Tháng"
         tests:
           - not_null
