@@ -29,33 +29,4 @@ clean-targets: # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   lightdash:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
-
-seeds:
-  lightdash:
-    per_hour_seed:
-      column_types:
-        id: integer
-        timestamp: bigint
-        project_name: text
-        tap_chip: integer
-        memories: integer
-        rewards: integer
-    per_day_seed:
-      column_types:
-        id: integer
-        timestamp: bigint
-        project_name: text
-        tap_chip: integer
-        memories: integer
-        rewards: integer
-    per_month_seed:
-      column_types:
-        id: integer
-        timestamp: bigint
-        project_name: text
-        tap_chip: integer
-        memories: integer
-        rewards: integer
+    +materialized: view

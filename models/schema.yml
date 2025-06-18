@@ -1,0 +1,167 @@
+version: 2
+
+models:
+  - name: per_day_view
+    description: "Dữ liệu theo ngày từ các dự án"
+    meta:
+      metrics:
+        - name: tap_chip
+          label: "Total Tap Chip"
+          description: "Tổng số lượng tap chip"
+          type: sum
+          sql: tap_chip
+
+        - name: memories
+          label: "Total Memories"
+          description: "Tổng số lượng memories"
+          type: sum
+          sql: memories
+
+        - name: rewards
+          label: "Total Rewards"
+          description: "Tổng số lượng rewards"
+          type: sum
+          sql: rewards
+
+    columns:
+      - name: day
+        description: "Ngày"
+        tests:
+          - not_null
+        meta:
+          dimension:
+            type: timestamp
+            time_intervals: ["day", "week", "month", "quarter", "year"]
+
+      - name: project_name
+        description: "Tên dự án"
+        tests:
+          - not_null
+        meta:
+          dimension:
+            type: string
+
+      - name: tap_chip
+        description: "Số lượng tap chip"
+        tests:
+          - not_null
+
+      - name: memories
+        description: "Số lượng memories"
+        tests:
+          - not_null
+
+      - name: rewards
+        description: "Số lượng rewards"
+        tests:
+          - not_null
+
+  - name: per_hour_view
+    description: "Dữ liệu theo giờ từ các dự án"
+    meta:
+      metrics:
+        - name: tap_chip
+          label: "Total Tap Chip"
+          description: "Tổng số lượng tap chip"
+          type: sum
+          sql: tap_chip
+
+        - name: memories
+          label: "Total Memories"
+          description: "Tổng số lượng memories"
+          type: sum
+          sql: memories
+
+        - name: rewards
+          label: "Total Rewards"
+          description: "Tổng số lượng rewards"
+          type: sum
+          sql: rewards
+
+    columns:
+      - name: time
+        description: "Thời điểm (timestamp)"
+        tests:
+          - not_null
+        meta:
+          dimension:
+            type: timestamp
+            time_intervals: ["hour", "day", "week", "month", "year"]
+
+      - name: project_name
+        description: "Tên dự án"
+        tests:
+          - not_null
+        meta:
+          dimension:
+            type: string
+
+      - name: tap_chip
+        description: "Số lượng tap chip"
+        tests:
+          - not_null
+
+      - name: memories
+        description: "Số lượng memories"
+        tests:
+          - not_null
+
+      - name: rewards
+        description: "Số lượng rewards"
+        tests:
+          - not_null
+
+  - name: per_month_view
+    description: "Dữ liệu theo tháng từ các dự án"
+    meta:
+      metrics:
+        - name: tap_chip
+          label: "Total Tap Chip"
+          description: "Tổng số lượng tap chip"
+          type: sum
+          sql: tap_chip
+
+        - name: memories
+          label: "Total Memories"
+          description: "Tổng số lượng memories"
+          type: sum
+          sql: memories
+
+        - name: rewards
+          label: "Total Rewards"
+          description: "Tổng số lượng rewards"
+          type: sum
+          sql: rewards
+
+    columns:
+      - name: month
+        description: "Tháng"
+        tests:
+          - not_null
+        meta:
+          dimension:
+            type: timestamp
+            time_intervals: ["month", "quarter", "year"]
+
+      - name: project_name
+        description: "Tên dự án"
+        tests:
+          - not_null
+        meta:
+          dimension:
+            type: string
+
+      - name: tap_chip
+        description: "Số lượng tap chip"
+        tests:
+          - not_null
+
+      - name: memories
+        description: "Số lượng memories"
+        tests:
+          - not_null
+
+      - name: rewards
+        description: "Số lượng rewards"
+        tests:
+          - not_null

@@ -4,4 +4,4 @@ SELECT
   tap_chip,
   memories,
   rewards
-FROM {{ ref('per_month_seed') }}
+FROM {{ ref('per_month') }}
