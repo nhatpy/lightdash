@@ -31,7 +31,7 @@ models:
         meta:
           dimension:
             type: timestamp
-            time_intervals: ["day", "week", "month", "quarter", "year"]
+            time_intervals: ["day"] # Chỉ group theo ngày
 
       - name: project_name
         description: "Tên dự án"
@@ -86,7 +86,7 @@ models:
         meta:
           dimension:
             type: timestamp
-            time_intervals: ["hour", "day", "week", "month", "year"]
+            time_intervals: ["hour"] # Chỉ group theo giờ
 
       - name: project_name
         description: "Tên dự án"
@@ -141,7 +141,7 @@ models:
         meta:
           dimension:
             type: timestamp
-            time_intervals: ["month", "quarter", "year"]
+            time_intervals: ["month", "quarter", "year"] # Group theo tháng, quý, năm
 
       - name: project_name
         description: "Tên dự án"
@@ -165,3 +165,48 @@ models:
         description: "Số lượng rewards"
         tests:
           - not_null
+
+sources:
+  - name: public
+    description: "Schema public from etl_db"
+    database: etl_db
+    tables:
+      - name: per_hour
+        description: "Dữ liệu theo giờ từ các dự án"
+        columns:
+          - name: timestamp
+            description: "Thời điểm (timestamp)"
+          - name: project_name
+            description: "Tên dự án"
+          - name: tap_chip
+            description: "Số lượng tap chip"
+          - name: memories
+            description: "Số lượng memories"
+          - name: rewards
+            description: "Số lượng rewards"
+      - name: per_day
+        description: "Dữ liệu theo ngày từ các dự án"
+        columns:
+          - name: timestamp
+            description: "Thời điểm (timestamp)"
+          - name: project_name
+            description: "Tên dự án"
+          - name: tap_chip
+            description: "Số lượng tap chip"
+          - name: memories
+            description: "Số lượng memories"
+          - name: rewards
+            description: "Số lượng rewards"
+      - name: per_month
+        description: "Dữ liệu theo tháng từ các dự án"
+        columns:
+          - name: timestamp
+            description: "Thời điểm (timestamp)"
+          - name: project_name
+            description: "Tên dự án"
+          - name: tap_chip
+            description: "Số lượng tap chip"
+          - name: memories
+            description: "Số lượng memories"
+          - name: rewards
+            description: "Số lượng rewards"

@@ -4,4 +4,4 @@ SELECT
   tap_chip,
   memories,
   rewards
-FROM {{ ref('per_hour') }}
+FROM {{ source('public', 'per_hour') }}
