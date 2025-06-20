@@ -166,57 +166,6 @@ models:
         tests:
           - not_null
 
-  - name: behavior_per_hour_view
-    description: "Chip theo giờ"
-    meta:
-      metrics:
-        - name: counting_sum
-          label: "Total Counting"
-          description: "Tổng số lượng"
-          type: sum
-          sql: counting
-
-        - name: counting_average
-          label: "Average Counting"
-          description: "Trung bình số lượng"
-          type: average
-          sql: counting
-
-    columns:
-      - name: time
-        description: "Thời điểm (timestamp)"
-        tests:
-          - not_null
-        meta:
-          dimension:
-            type: timestamp
-            time_intervals: ["hour"] # Chỉ group theo giờ
-
-      - name: type
-        description: "Loại chip"
-        tests:
-          - not_null
-        meta:
-          dimension:
-            type: string
-
-      - name: project_id
-        description: "ID dự án"
-        tests:
-          - not_null
-
-      - name: project_name
-        description: "Tên dự án"
-        tests:
-          - not_null
-
-      - name: category
-        description: "Danh mục"
-
-      - name: counting
-        description: "Số lượng"
-        tests:
-          - not_null
 sources:
   - name: public
     description: "Schema public from etl_db"
@@ -261,18 +210,3 @@ sources:
             description: "Số lượng memories"
           - name: rewards
             description: "Số lượng rewards"
-      - name: behavior_per_hour
-        description: "Chip theo giờ"
-        columns:
-          - name: timestamp
-            description: "Thời điểm (timestamp)"
-          - name: type
-            description: "Loại chip"
-          - name: project_id
-            description: "ID dự án"
-          - name: project_name
-            description: "Tên dự án"
-          - name: category
-            description: "Danh mục"
-          - name: counting
-            description: "Số lượng"
